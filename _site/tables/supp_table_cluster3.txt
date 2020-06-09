@@ -1,0 +1,290 @@
+locus_tag	wp	old_locus_tag.x	protein	PIR_SUPERFAMILY	SMART
+HVO_RS00705	WP_004041011.1	HVO_B0145	creatininase		
+HVO_RS00635	WP_004041025.1	HVO_B0131	hypothetical protein		
+HVO_RS00570	WP_004041038.1	HVO_B0118	SMC-like protein Sph2		
+HVO_RS00350	WP_004041082.1	HVO_B0073	transcriptional regulator		SM00344:HTH_ASNC
+HVO_RS00090	WP_004041134.1	HVO_B0020	bacterio-opsin activator		
+HVO_RS01720	WP_004041182.1	HVO_B0356	hypothetical protein		
+HVO_RS01710	WP_004041187.1	HVO_B0354	hypothetical protein		
+HVO_RS01330	WP_004041265.1	HVO_B0273	histidine kinase		SM00387:HATPase_c,SM00388:HisKA
+HVO_RS00950	WP_004041341.1	HVO_B0193	transcriptional regulator		
+HVO_RS00945	WP_004041342.1	HVO_B0192	hypothetical protein		
+HVO_RS00895	WP_004041353.1	HVO_B0182	deoxyhypusine synthase		
+HVO_RS00770	WP_004041380.1	NA	hypothetical protein		
+HVO_RS00755	WP_004041383.1	NA	response regulator		SM00448:REC
+HVO_RS19935	WP_NA	HVO_A0353	ISH3 family transposase	NA	NA
+HVO_RS03435	WP_NA	HVO_A0354	ISH3 family transposase		
+HVO_RS04090	WP_004040855.1	HVO_A0503	amidohydrolase		
+HVO_RS04280	WP_004040894.1	HVO_A0545	TetR family transcriptional regulator		
+HVO_RS04545	WP_004040958.1	HVO_A0601	nitrous oxide reductase accessory protein NosL		
+HVO_RS04675	WP_004040984.1	HVO_A0631	hypothetical protein		
+HVO_RS02480	WP_004043070.1	HVO_A0140	phosphohydrolase		SM00471:HDc
+HVO_RS02940	WP_004043162.1	HVO_A0245	hypothetical protein		
+HVO_RS03305	WP_004043238.1	HVO_A0324	hypothetical protein		
+HVO_RS01920	WP_004043309.1	HVO_A0012	hypothetical protein		
+HVO_RS02130	WP_004043378.1	HVO_A0057	IS5 family transposase ISHvo2		
+HVO_RS19745	WP_004043400.1	HVO_A0038	hypothetical protein	NA	NA
+HVO_RS02045	WP_004043401.1	HVO_A0037	hypothetical protein		
+HVO_RS02040	WP_004043402.1	HVO_A0036	transcriptional regulator		
+HVO_RS01975	WP_004043414.1	HVO_A0024	hypothetical protein		
+HVO_RS01970	WP_004043415.1	HVO_A0023	hypothetical protein		
+HVO_RS01960	WP_004043417.1	HVO_A0021	hypothetical protein		
+HVO_RS01955	WP_004043418.1	HVO_A0020	hypothetical protein		
+HVO_RS03500	WP_013035021.1	HVO_A0369	CopG family transcriptional regulator		
+HVO_RS02535	WP_013035042.1	HVO_A0151	IS4 family transposase		
+HVO_RS03835	WP_013035066.1	HVO_A0449	IS4 family transposase		
+HVO_RS03085	WP_013035094.1	HVO_A0279A	DNA-directed RNA polymerase subunit M		SM00661:RPOL9
+HVO_RS03550	WP_013035096.1	HVO_A0381	peptide ABC transporter		
+HVO_RS02965	WP_013035110.1	HVO_A0251	MarR family transcriptional regulator		
+HVO_RS19945	WP_013035136.1	HVO_A0365	hypothetical protein	NA	NA
+HVO_RS02380	WP_013035157.1	HVO_A0110	IS4 family transposase		
+HVO_RS03005	WP_013035158.1	HVO_A0262	IS4 family transposase		
+HVO_RS20080	WP_013035161.1	NA	hypothetical protein	NA	NA
+HVO_RS02165	WP_013035182.1	HVO_A0064	cell division control protein Cdc6		
+HVO_RS03490	WP_013035191.1	HVO_A0367	IS4 family transposase		
+HVO_RS02455	WP_013035207.1	HVO_A0133	Tat (twin-arginine translocation) pathway signal sequence domain protein		
+HVO_RS03695	WP_013035218.1	HVO_A0415	cyclase		
+HVO_RS19720	WP_081442864.1	NA	hypothetical protein	NA	NA
+HVO_RS19805	WP_081442867.1	NA	hypothetical protein	NA	NA
+HVO_RS20145	WP_004041399.1	HVO_1522	methyltransferase	NA	NA
+HVO_RS20160	WP_004041402.1	HVO_1524	agl cluster protein AglR	NA	NA
+HVO_RS20165	WP_004041404.1	HVO_1526	hypothetical protein	NA	NA
+HVO_RS12285	WP_004041458.1	HVO_1578	NADH dehydrogenase		
+HVO_RS12345	WP_004041481.1	HVO_1590	molecular chaperone DnaK		
+HVO_RS12475	WP_004041509.1	HVO_1619	hypothetical protein		
+HVO_RS12560	WP_004041527.1	HVO_1637	peptidylprolyl isomerase		
+HVO_RS12625	WP_004041540.1	HVO_1649	S-adenosylmethionine synthetase		
+HVO_RS12645	WP_004041544.1	HVO_1653	hypothetical protein		
+HVO_RS12715	WP_004041557.1	HVO_1667	transcriptional regulator		
+HVO_RS12795	WP_004041574.1	HVO_1684	threonine--tRNA ligase		SM00863:SM00863
+HVO_RS12855	WP_004041585.1	HVO_1696	L-lactate permease		
+HVO_RS12955	WP_004041606.1	HVO_1716	7-cyano-7-deazaguanine synthase	PIRSF006293:uncharacterized conserved protein, ExsB type	
+HVO_RS13045	WP_004041618.1	HVO_1734	hypothetical protein		
+HVO_RS13100	WP_004041629.1	HVO_1745	hypothetical protein		
+HVO_RS13115	WP_004041632.1	HVO_1749	hypothetical protein		
+HVO_RS13545	WP_004041728.1	NA	hypothetical protein		
+HVO_RS13795	WP_004041777.1	HVO_1896	30S ribosomal protein S24e		
+HVO_RS13805	WP_004041779.1	HVO_1898	DNA-directed RNA polymerase subunit E''		SM01389:SM01389
+HVO_RS13810	WP_004041780.1	HVO_1899	DNA-directed RNA polymerase		SM00316:SM00316
+HVO_RS14080	WP_004041835.1	HVO_1955	aconitate hydratase		
+HVO_RS14085	WP_004041836.1	HVO_1956	deoxyuridine 5'-triphosphate nucleotidohydrolase		
+HVO_RS14205	WP_004041861.1	HVO_1981	hypothetical protein		
+HVO_RS14460	WP_004041915.1	HVO_2029	AsnC family transcriptional regulator		SM00344:HTH_ASNC
+HVO_RS14600	WP_004041944.1	HVO_2059	dTDP-glucose 4,6-dehydratase		
+HVO_RS14635	WP_004041952.1	HVO_2067	DNA-binding protein transcriptional regulator		
+HVO_RS14640	WP_004041953.1	HVO_2068	cell division protein		SM00864:SM00864
+HVO_RS14935	WP_004042013.1	HVO_2130	transcriptional regulator		SM00346:HTH_ICLR,SM00418:HTH_ARSR
+HVO_RS14985	WP_004042022.1	HVO_2140	hypothetical protein		
+HVO_RS15030	WP_004042032.1	HVO_2149A	hypothetical protein		
+HVO_RS15300	WP_004042095.1	HVO_2203	hypothetical protein		
+HVO_RS15530	WP_004042140.1	NA	hypothetical protein		
+HVO_RS15550	WP_004042144.1	HVO_2258	hypothetical protein		
+HVO_RS15585	WP_004042151.1	HVO_2265	hypothetical protein		
+HVO_RS15625	WP_004042160.1	HVO_2273	integrase		
+HVO_RS15645	WP_004042166.1	HVO_2277	hypothetical protein		
+HVO_RS15650	WP_004042167.1	HVO_2278	conjugal transfer protein		
+HVO_RS15690	WP_004042175.1	NA	hypothetical protein		
+HVO_RS15710	WP_004042179.1	HVO_2288	hypothetical protein		
+HVO_RS15770	WP_004042193.1	HVO_2300	translation initiation factor IF-5A	PIRSF003025:translation initiation factor eIF-5A	SM01376:SM01376
+HVO_RS15840	WP_004042206.1	HVO_2314	hypothetical protein		
+HVO_RS15990	WP_004042235.1	HVO_2345	NADH oxidase		
+HVO_RS16010	WP_004042239.1	HVO_2349	transcriptional regulator		
+HVO_RS16125	WP_004042262.1	HVO_2373	30S ribosomal protein S8e		
+HVO_RS16415	WP_004042325.1	HVO_2432	basic amino acid ABC transporter substrate-binding protein		SM00062:PBPb
+HVO_RS16505	WP_004042355.1	HVO_2449A	hypothetical protein		
+HVO_RS16635	WP_004042417.1	HVO_2475	30S ribosomal protein S17e		
+HVO_RS16710	WP_004042448.1	HVO_2490	hypothetical protein		
+HVO_RS16735	WP_004042456.1	HVO_2495	HTR-like protein		SM01415:SM01415
+HVO_RS16740	WP_004042457.1	HVO_2496	adenylate kinase		
+HVO_RS16790	WP_004042477.1	HVO_2506	isopentenyl-diphosphate Delta-isomerase	PIRSF018427:isopentenyldiphosphate isomerase	
+HVO_RS16820	WP_004042489.1	HVO_2512	membrane protein		
+HVO_RS16925	WP_004042533.1	HVO_2533	PGF-CTERM sorting domain-containing protein		
+HVO_RS16965	WP_004042558.1	HVO_2541	preprotein translocase subunit SecY	PIRSF004557:preprotein translocase Sec, SecY/Sec61-alpha subunit	
+HVO_RS16970	WP_004042560.1	HVO_2542	50S ribosomal protein L15		
+HVO_RS16975	WP_004042563.1	HVO_2543	50S ribosomal protein L30		
+HVO_RS16980	WP_004042565.1	HVO_2544	30S ribosomal protein S5		
+HVO_RS16985	WP_004042567.1	HVO_2545	50S ribosomal protein L18		
+HVO_RS16990	WP_004042571.1	HVO_2546	50S ribosomal protein L19e		SM01416:SM01416
+HVO_RS17000	WP_004042575.1	HVO_2548	50S ribosomal protein L6	PIRSF002162:ribosomal protein, L6p/L6a/L9e/organellar L9 types	
+HVO_RS17005	WP_004042581.1	HVO_2549	30S ribosomal protein S8		
+HVO_RS17010	WP_004042587.1	HVO_2550	30S ribosomal protein S14		
+HVO_RS17015	WP_004042589.1	HVO_2551	50S ribosomal protein L5	PIRSF002161:ribosomal protein, L5p/L5a/L11e/organellar L5 types	
+HVO_RS17020	WP_004042591.1	HVO_2552	30S ribosomal protein S4e	PIRSF002116:ribosomal protein S4a/S4e	
+HVO_RS17025	WP_004042593.1	HVO_2553	50S ribosomal protein L24		
+HVO_RS17030	WP_004042597.1	HVO_2554	50S ribosomal protein L14		SM01374:SM01374
+HVO_RS17040	WP_004042600.1	HVO_2556	ribonuclease P		SM00538:POP4
+HVO_RS17045	WP_004042603.1	HVO_2557	50S ribosomal protein L29		
+HVO_RS17050	WP_004042606.1	HVO_2558	30S ribosomal protein S3		SM00322:KH
+HVO_RS17055	WP_004042608.1	HVO_2559	50S ribosomal protein L22		
+HVO_RS17060	WP_004042610.1	HVO_2560	30S ribosomal protein S19	PIRSF002144:ribosomal protein, S19p/S19a/S15e/organellar S19 types	
+HVO_RS17065	WP_004042612.1	HVO_2561	50S ribosomal protein L2	PIRSF002158:ribosomal protein, L2p/L2a/L8e/organellar L2 types	SM01382:SM01382,SM01383:SM01383
+HVO_RS17070	WP_004042614.1	HVO_2562	50S ribosomal protein L23		
+HVO_RS17075	WP_004042616.1	HVO_2563	50S ribosomal protein L4		
+HVO_RS17080	WP_004042618.1	HVO_2564	50S ribosomal protein L3		
+HVO_RS17085	WP_004042620.1	HVO_2565	hypothetical protein		
+HVO_RS17200	WP_004042658.1	HVO_2588	isocitrate dehydrogenase (NADP(+))		SM01329:SM01329
+HVO_RS17370	WP_004042731.1	HVO_2624	CTP synthetase		
+HVO_RS17375	WP_004042733.1	HVO_2625	GMP synthase		
+HVO_RS17380	WP_004042736.1	HVO_2626	hypothetical protein		
+HVO_RS17530	WP_004042789.1	HVO_2657	halocyanin		
+HVO_RS20305	WP_004042936.1	HVO_2722	50S ribosomal protein L37e	NA	NA
+HVO_RS17855	WP_004042938.1	HVO_2723	snRNP-like protein		SM00651:Sm
+HVO_RS17925	WP_004042964.1	HVO_2737	50S ribosomal protein L7ae		
+HVO_RS17930	WP_004042966.1	HVO_2738	30S ribosomal protein S28e		
+HVO_RS17935	WP_004042968.1	HVO_2739	50S ribosomal protein L24e		
+HVO_RS17940	WP_004042970.1	HVO_2740	nucleoside-diphosphate kinase		SM00562:NDK
+HVO_RS17950	WP_004042974.1	HVO_2742	methionine synthase		
+HVO_RS17980	WP_004042989.1	HVO_2748	DNA-directed RNA polymerase subunit F	PIRSF005053:RNA polymerase, subunit F	
+HVO_RS18000	WP_004042995.1	HVO_2752	elongation factor 1-beta	PIRSF006521:translation elongation factor 1-beta, archaeal type	SM00888:SM00888
+HVO_RS18005	WP_004042997.1	HVO_2753	RNA-binding protein		
+HVO_RS18015	WP_004043001.1	HVO_2755	50S ribosomal protein P1		
+HVO_RS18020	WP_004043002.1	HVO_2756	50S ribosomal protein L10		
+HVO_RS18025	WP_004043003.1	HVO_2757	50S ribosomal protein L1	PIRSF002155:ribosomal protein, L1p/L1a/L10e/organellar L1 types	
+HVO_RS18030	WP_004043005.1	HVO_2758	50S ribosomal protein L11		SM00649:RL11
+HVO_RS18105	WP_004043019.1	HVO_2773	30S ribosomal protein S2		
+HVO_RS18110	WP_004043020.1	HVO_2774	phosphopyruvate hydratase	PIRSF001400:enolase	SM01192:SM01192,SM01193:SM01193
+HVO_RS18115	WP_004043021.1	HVO_2775	DNA-directed RNA polymerase subunit K/omega	PIRSF000778:DNA-directed RNA polymerase, subunit K/RPB6 subunit	
+HVO_RS18120	WP_004043022.1	HVO_2776	DNA-directed RNA polymerase subunit N	PIRSF005653:DNA-directed RNA polymerase II, RPB10/RpoN subunit type	
+HVO_RS18125	WP_004043023.1	HVO_2777	30S ribosomal protein S9		
+HVO_RS18130	WP_004043024.1	HVO_2778	50S ribosomal protein L13	PIRSF002181:ribosomal protein, L13p/L13Aa/L16e/organellar L13 types	
+HVO_RS18135	WP_004043025.1	HVO_2779	50S ribosomal protein L18e		
+HVO_RS18145	WP_004043026.1	HVO_2781	DNA-directed RNA polymerase subunit D		SM00662:RPOLD
+HVO_RS18150	WP_004043027.1	HVO_2782	30S ribosomal protein S11	PIRSF002131:ribosomal protein, S11p/S11a/S14e/organellar S11 types	
+HVO_RS18155	WP_004043028.1	HVO_2783	30S ribosomal protein S4		SM00363:S4,SM01390:SM01390
+HVO_RS18160	WP_004043029.1	HVO_2784	30S ribosomal protein S13	PIRSF002134:ribosomal protein, S13p/S13a/S18e/organellar S13 types	
+HVO_RS18225	WP_004043040.1	HVO_2797	uridine kinase		
+HVO_RS20310	WP_004043058.1	HVO_2815A	integrase	NA	NA
+HVO_RS11955	WP_004043432.1	HVO_1503	3-isopropylmalate dehydratase small subunit		
+HVO_RS11720	WP_004043481.1	HVO_1454	aspartate carbamoyltransferase		
+HVO_RS11705	WP_004043484.1	HVO_1451	glutamate dehydrogenase	PIRSF000185:glutamate dehydrogenase	SM00839:SM00839
+HVO_RS11700	WP_004043485.1	HVO_1450	molybdenum cofactor biosynthesis protein		
+HVO_RS11455	WP_004043537.1	HVO_1401	BMP family ABC transporter substrate-binding protein		
+HVO_RS11405	WP_004043548.1	HVO_1391	biotin transporter BioY		
+HVO_RS11250	WP_004043580.1	HVO_1359	hypothetical protein		
+HVO_RS11245	WP_004043581.1	HVO_1358	response regulator		SM00448:REC
+HVO_RS11065	WP_004043616.1	HVO_1322	chorismate mutase		SM00830:SM00830
+HVO_RS10710	WP_004043692.1	HVO_1249	hypothetical protein		
+HVO_RS10340	WP_004043768.1	HVO_1173	tRNA (cytidine(56)-2'-O)-methyltransferase	PIRSF016123:uncharacterized conserved protein	
+HVO_RS10305	WP_004043775.1	HVO_1166	hypothetical protein		SM01103:SM01103
+HVO_RS10300	WP_004043776.1	HVO_1165	mechanosensitive ion channel protein		
+HVO_RS10190	WP_004043795.1	HVO_1142	hypothetical protein		
+HVO_RS10185	WP_004043796.1	HVO_1141	hypothetical protein		
+HVO_RS10170	WP_004043799.1	HVO_1138	cox-type terminal oxidase subunit III		
+HVO_RS09940	WP_004043847.1	HVO_1091	proteasome endopeptidase complex,subunit alpha		SM00948:SM00948
+HVO_RS09845	WP_004043866.1	HVO_1072	adenine phosphoribosyltransferase		
+HVO_RS09565	WP_004043928.1	HVO_1014	cytochrome c oxidase subunit II		
+HVO_RS09430	WP_004043956.1	HVO_0987	oxidoreductase		
+HVO_RS09415	WP_004043959.1	HVO_0984	hypothetical protein		
+HVO_RS09410	WP_004043960.1	HVO_0983	NADH dehydrogenase subunit J		
+HVO_RS09405	WP_004043961.1	HVO_0982	(4Fe-4S)-binding protein		
+HVO_RS09390	WP_004043964.1	HVO_0979	NADH dehydrogenase		
+HVO_RS09360	WP_004043970.1	HVO_0973	aspartate aminotransferase		
+HVO_RS09085	WP_004044024.1	HVO_0915	archaeosortase A	PIRSF025737:cytochrome oxidase subunit I related protein	
+HVO_RS09065	WP_004044028.1	HVO_0911	small GTP-binding protein		
+HVO_RS09060	WP_004044029.1	HVO_0910	hypothetical protein		
+HVO_RS08955	WP_004044050.1	HVO_0888	oxoglutarate--ferredoxin oxidoreductase		
+HVO_RS08935	WP_004044054.1	HVO_0883	hypothetical protein		
+HVO_RS08920	WP_004044057.1	HVO_0880	phosphoserine phosphatase		
+HVO_RS08875	WP_004044067.1	HVO_0870	proline--tRNA ligase		SM00946:SM00946
+HVO_RS08820	WP_004044077.1	HVO_0860	Fe-S cluster assembly protein SufB		
+HVO_RS08815	WP_004044078.1	HVO_0859	ABC transporter ATP-binding protein		SM00382:AAA
+HVO_RS08670	WP_004044109.1	HVO_0827	hypothetical protein		
+HVO_RS08570	WP_004044129.1	HVO_0807	hypothetical protein		
+HVO_RS08515	WP_004044141.1	HVO_0795	transcription initiation factor IIB 2		SM00385:CYCLIN
+HVO_RS08450	WP_004044155.1	HVO_0782	nicotinamide-nucleotide adenylyltransferase		
+HVO_RS08200	WP_004044208.1	HVO_0729	inorganic pyrophosphatase		
+HVO_RS08070	WP_004044234.1	HVO_0701	50S ribosomal protein L44e		
+HVO_RS08065	WP_004044235.1	HVO_0700	30S ribosomal protein S27e		
+HVO_RS08060	WP_004044236.1	HVO_0699	translation initiation factor IF-2 subunit alpha		SM00316:SM00316
+HVO_RS08055	WP_004044237.1	HVO_0698	H/ACA RNA-protein complex protein Nop10p		
+HVO_RS08030	WP_004044243.1	HVO_0692	methylthioadenosine phosphorylase		
+HVO_RS07955	WP_004044258.1	HVO_0677	aspartate--tRNA(Asn) ligase		
+HVO_RS07845	WP_004044282.1	HVO_0654	50S ribosomal protein L37ae		
+HVO_RS07395	WP_004044372.1	HVO_0561	50S ribosomal protein L15e		SM01384:SM01384
+HVO_RS07045	WP_004044437.1	HVO_0484	50S ribosomal protein L16	PIRSF005590:ribosomal protein L10a/L10e types	
+HVO_RS07000	WP_004044446.1	HVO_0476	hypothetical protein	PIRSF015877:uncharacterized Zn-finger protein	
+HVO_RS06950	WP_004044456.1	HVO_0466	citrate (Si)-synthase	PIRSF001369:citrate synthase	
+HVO_RS06875	WP_004044471.1	HVO_0452	leucine--tRNA ligase		
+HVO_RS06735	WP_004044500.1	HVO_0424	ribosome biogenesis/translation initiation ATPase RLI		SM00382:AAA
+HVO_RS06705	WP_004044506.1	HVO_0418	HNH endonuclease		SM00507:HNHc
+HVO_RS06440	WP_004044563.1	HVO_0360	30S ribosomal protein S10		SM01403:SM01403
+HVO_RS06435	WP_004044564.1	HVO_0359	elongation factor 1-alpha		
+HVO_RS06420	WP_004044567.1	HVO_0356	elongation factor EF-2		SM00838:SM00838,SM00889:SM00889
+HVO_RS06410	WP_004044569.1	HVO_0354	30S ribosomal protein S7	PIRSF002122:ribosomal protein, S7p/S7a/S5e/organellar S7 types	
+HVO_RS06405	WP_004044570.1	HVO_0353	30S ribosomal protein S12	PIRSF002133:ribosomal protein, S12p/S12a/S23e/organellar S12 types	
+HVO_RS06325	WP_004044584.1	HVO_0337	glutaredoxin		
+HVO_RS06245	WP_004044604.1	HVO_0319	V-type ATP synthase subunit D		
+HVO_RS06235	WP_004044606.1	HVO_0317	V-type ATP synthase subunit B		
+HVO_RS06230	WP_004044607.1	HVO_0316	ATP synthase subunit A		
+HVO_RS06225	WP_004044608.1	HVO_0315	ATP synthase subunit F		
+HVO_RS06220	WP_004044609.1	HVO_0314	ATP synthase subunit C		
+HVO_RS06215	WP_004044610.1	HVO_0313	ATP synthase subunit E		
+HVO_RS06210	WP_004044611.1	HVO_0312	F0F1 ATP synthase subunit C		
+HVO_RS06200	WP_004044613.1	HVO_0310	V-type ATP synthase subunit H		
+HVO_RS18570	WP_004044685.1	HVO_2869	PadR family transcriptional regulator		
+HVO_RS18660	WP_004044703.1	HVO_2886	acetyltransferase		
+HVO_RS18685	WP_004044709.1	HVO_2891	thymidine kinase	PIRSF035805:thymidine kinase	
+HVO_RS18880	WP_004044769.1	HVO_2931	hypothetical protein		
+HVO_RS18885	WP_004044771.1	HVO_2932	translation-associated GTPase		
+HVO_RS18960	WP_004044797.1	HVO_2948	phenylalanyl--tRNA ligase subunit alpha		
+HVO_RS19080	WP_004044841.1	HVO_2972	hypothetical protein		
+HVO_RS19125	WP_004044864.1	HVO_2981	uracil phosphoribosyltransferase		
+HVO_RS19255	WP_004044925.1	HVO_3007	malate dehydrogenase	PIRSF000102:L-lactate/malate dehydrogenase	
+HVO_RS04975	WP_004045081.1	HVO_0057	hypothetical protein		
+HVO_RS04980	WP_004045083.1	HVO_0058	peptide ABC transporter ATP-binding protein		SM00382:AAA
+HVO_RS04985	WP_004045086.1	HVO_0059	ABC transporter ATP-binding protein		SM00382:AAA
+HVO_RS04990	WP_004045088.1	HVO_0060	peptide ABC transporter permease		
+HVO_RS04995	WP_004045089.1	HVO_0061	peptide ABC transporter permease		
+HVO_RS05250	WP_004045214.1	HVO_0115	50S ribosomal protein L39e		
+HVO_RS05255	WP_004045216.1	HVO_0116	50S ribosomal protein L31e		SM01380:SM01380
+HVO_RS05260	WP_004045218.1	HVO_0117	translation initiation factor IF-6	PIRSF006413:translation initiation factor 6	SM00654:eIF6
+HVO_RS05375	WP_004045251.1	HVO_0138	tyrosine--tRNA ligase	PIRSF006588:tyrosine tRNA ligase, archaeal/eukaryotic types	
+HVO_RS05455	WP_004045267.1	HVO_0154	hypothetical protein		
+HVO_RS05560	WP_004045289.1	HVO_0175	DNA polymerase sliding clamp		
+HVO_RS05595	WP_004045298.1	HVO_0184	CopG family transcriptional regulator		
+HVO_RS05655	WP_004045310.1	HVO_0196	DUF1931 domain-containing protein		
+HVO_RS05875	WP_004045355.1	HVO_0240	AsnC family transcriptional regulator		SM00344:HTH_ASNC
+HVO_RS09050	WP_004064260.1	HVO_0908	hypothetical protein		
+HVO_RS05545	WP_004065604.1	HVO_0172	hypothetical protein		
+HVO_RS11375	WP_008574128.1	HVO_1385	transcription factor S	PIRSF005586:DNA-directed RNA polymerase subunit, RpoM type	SM00440:ZnF_C2C2,SM00661:RPOL9
+HVO_RS15735	WP_013035252.1	HVO_2292	Orc1-type DNA replication protein		SM00382:AAA,SM01074:SM01074
+HVO_RS12020	WP_013035321.1	HVO_1519	IS4 family transposase		
+HVO_RS18675	WP_013035331.1	HVO_2889	nuclease		SM00316:SM00316
+HVO_RS15640	WP_013035348.1	HVO_2276	hypothetical protein		
+HVO_RS06205	WP_013035358.1	HVO_0311	ATP synthase subunit I		
+HVO_RS17035	WP_013035359.1	HVO_2555	30S ribosomal protein S17		
+HVO_RS12050	WP_013035363.1	HVO_1530	MFS transporter		
+HVO_RS13495	WP_013035390.1	HVO_1831	(2Fe-2S)-binding protein		
+HVO_RS16995	WP_013035418.1	HVO_2547	50S ribosomal protein L32e		SM00278:HhH1,SM01393:SM01393
+HVO_RS13270	WP_013035466.1	HVO_1782	IS4 family transposase		
+HVO_RS15720	WP_013035521.1	HVO_2290	integrase		
+HVO_RS16220	WP_013035537.1	HVO_2392	hypothetical protein		
+HVO_RS15560	WP_013035557.1	HVO_2260	hypothetical protein		
+HVO_RS18335	WP_013035579.1	HVO_2820	IS4 family transposase		
+HVO_RS12405	WP_013035588.1	HVO_1603	nitrate ABC transporter substrate-binding protein		
+HVO_RS06850	WP_013035608.1	HVO_0447	phosphate-binding protein		
+HVO_RS15590	WP_013035643.1	HVO_2266	hypothetical protein		
+HVO_RS14660	WP_013035656.1	HVO_2072	major cell surface glycoprotein		
+HVO_RS15535	WP_013035660.1	HVO_2254	hypothetical protein		
+HVO_RS10205	WP_013035666.1	HVO_1145	30S ribosomal protein S3ae		SM01397:SM01397
+HVO_RS15305	WP_049896292.1	HVO_2204	cell division protein		
+HVO_RS14655	WP_049914806.1	HVO_2071	hypothetical protein		
+HVO_RS15685	WP_049914817.1	NA	hypothetical protein		
+HVO_RS16920	WP_049914828.1	HVO_2532	hypothetical protein		
+HVO_RS15695	WP_049941508.1	NA	hypothetical protein		
+HVO_RS20090	WP_081442879.1	HVO_0031	hypothetical protein	NA	NA
+HVO_RS20170	WP_081442888.1	HVO_1734A	hypothetical protein	NA	NA
+HVO_RS20345	WP_NA	NA	hypothetical protein	NA	NA
+HVO_RS20355	WP_NA	HVO_C0020A	IS6 family transposase	NA	NA
+HVO_RS20405	WP_004045436.1	HVO_C0054	hypothetical protein	NA	NA
+HVO_RS19590	WP_004971318.1	HVO_C0076	ArcR family transcriptional regulator		SM00346:HTH_ICLR
+HVO_RS19475	WP_013035676.1	HVO_C0050	hypothetical protein		
+HVO_RS19295	WP_013035677.1	HVO_C0001	Orc1-type DNA replication protein		SM00382:AAA
+HVO_RS19335	WP_013035679.1	HVO_C0010	hypothetical protein		
+HVO_RS19430	WP_013035684.1	HVO_C0037	ISH3 family transposase ISHvo21		
+HVO_RS19625	WP_013035691.1	HVO_C0087	hypothetical protein		
+HVO_RS20330	WP_013035692.1	HVO_C0002	hypothetical protein	NA	NA
+HVO_RS20385	WP_013035696.1	HVO_C0040	DNA (cytosine-5-)-methyltransferase	NA	NA
+HVO_RS20350	WP_013035698.1	HVO_C0015	hypothetical protein	NA	NA
+HVO_RS19480	WP_013035721.1	HVO_C0051	hypothetical protein		
+HVO_RS19330	WP_013035737.1	HVO_C0009	hypothetical protein		
