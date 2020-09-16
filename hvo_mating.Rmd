@@ -34,6 +34,7 @@ library(gggenes)
 library(DEGreport)
 library(pheatmap)
 library(tibble)
+library(stringr)
 ```
 
 ###\n Import count matrix
@@ -295,7 +296,7 @@ pc <- as.data.frame(exp.pca$x)
 pc$heading <- rownames(pc)
 pc_factors <- merge(pc, myfactors, by = "heading")
 ggplot(pc_factors, aes(x = PC1, y = PC2, colour = time_de)) +
-  geom_point() +
+  geom_point(size = 3) +
   scale_color_manual(name = NULL, labels = c("shaking", "t00", "t02", "t04", "t08", "t24"), 
                   values=c("darkgrey", "#000000", "#E69F00", "#009E73", "#0072B2", "#D55E00")) +
   theme_bw() +
@@ -310,11 +311,11 @@ summary(PC2_stats)
 PC3_stats <- lm(PC3 ~ time_de, data = pc_factors)
 summary(PC3_stats)
 
-fviz_pca_var(exp.pca,
-             col.var = "contrib", # Color by contributions to the PC
-             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
-             repel = TRUE     # Avoid text overlapping
-             )
+# fviz_pca_var(exp.pca,
+#              col.var = "contrib", # Color by contributions to the PC
+#              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+#              repel = TRUE     # Avoid text overlapping
+#              )
 
 ```
 
@@ -640,18 +641,18 @@ coords$prot <- NULL
 coords01$prot <- NULL
 
 lists <- list(
-  `snare_deda`=c("HVO_RS05125", "HVO_0934", "HVO_1969", "HVO_2517", "HVO_B0204"),
-  `cetz_ftsz`=c("HVO_0581", "HVO_0717", "HVO_0745", "HVO_1113", "HVO_2013", "HVO_2068", "HVO_2204", "HVO_A0035"),
-  `cell_div`=c("HVO_1725", "HVO_2042", "HVO_2293", "HVO_B0001", "HVO_A0001", "HVO_A0064", "HVO_A0257", "HVO_0220"),
-  `rms`=c("HVO_0794", "HVO_2269", "HVO_2270", "HVO_2271", "HVO_C0040", "HVO_A0006", "HVO_A0079", "HVO_A0237"),
-  `tivss`=c("HVO_0421", "HVO_0620", "HVO_0748", "HVO_1160", "HVO_1217", "HVO_2278", "HVO_2385", "HVO_C0036",
-  "HVO_2281", "HVO_C0036"),
-  `crispr_cas`=c("HVO_A0205", "HVO_A0206", "HVO_A0207", "HVO_A0208","HVO_A0209", "HVO_A0210", "HVO_A0211", "HVO_A0212"),
-  `glyc`=c("HVO_0727", "HVO_1524", "HVO_1527", "HVO_1528", "HVO_1529", "HVO_1530", "HVO_1531", "HVO_A0586",
-                    "HVO_1517", "HVO_1523A", "HVO_0798", "HVO_1526", "HVO_1522", "HVO_1523", "HVO_2072", "HVO_1734A"),
-  `lsglyc`=c("HVO_2043", "HVO_2044", "HVO_2045", "HVO_2046", "HVO_2047", "HVO_2048", "HVO_2049",
-  "HVO_2051", "HVO_2052", "HVO_2053", "HVO_2054", "HVO_2055", "HVO_2056", "HVO_2057",
-  "HVO_2058", "HVO_2059", "HVO_2060", "HVO_2061", "HVO_2062", "HVO_2063", "HVO_2064")
+  # `snare_deda`=c("HVO_RS05125", "HVO_0934", "HVO_1969", "HVO_2517", "HVO_B0204")
+  # `cetz_ftsz`=c("HVO_0581", "HVO_0717", "HVO_0745", "HVO_1113", "HVO_2013", "HVO_2068", "HVO_2204", "HVO_A0035")
+  # `cell_div`=c("HVO_1725", "HVO_2042", "HVO_2293", "HVO_B0001", "HVO_A0001", "HVO_A0064", "HVO_A0257", "HVO_0220"),
+  # `rms`=c("HVO_0794", "HVO_2269", "HVO_2270", "HVO_2271", "HVO_C0040", "HVO_A0006", "HVO_A0079", "HVO_A0237")
+  # `tivss`=c("HVO_0421", "HVO_0620", "HVO_0748", "HVO_1160", "HVO_1217", "HVO_2278", "HVO_2385", "HVO_C0036", "HVO_2281", "HVO_C0036")
+  # `crispr_cas`=c("HVO_A0205", "HVO_A0206", "HVO_A0207", "HVO_A0208","HVO_A0209", "HVO_A0210", "HVO_A0211", "HVO_A0212")
+  # `glyc`=c("HVO_0727", "HVO_1524", "HVO_1527", "HVO_1528", "HVO_1529", "HVO_1530", "HVO_1531",
+  #          "HVO_1517", "HVO_1523A", "HVO_0798", "HVO_1526", "HVO_1522", "HVO_1523", "HVO_2072"),
+  # `lsglyc`=c("HVO_2044", "HVO_2045", "HVO_2046", "HVO_2047", "HVO_2048", "HVO_2049",
+  #            "HVO_2052", "HVO_2053", "HVO_2054", "HVO_2055", "HVO_2056", "HVO_2057",
+  #            "HVO_2058", "HVO_2059", "HVO_2060", "HVO_2061", "HVO_2063", "HVO_2064")
+  `nglyc_hyp`=c("HVO_2052", "HVO_A0198", "HVO_2391", "HVO_2267", "HVO_A0186", "HVO_A0214", "HVO_0702")
 )
 
 ## relabel specific items in p0 based on corrections discussed in lab meetings
@@ -678,6 +679,47 @@ p0[2729, 9] <- "type II/IV secretion system protein"
 p0[1448, 9] <- "type IV secretory pathway, VirB4 component"
 p0[2161, 9] <- "type II/IV secretion system protein"
 p0[497, 9] <- "helicase Cas3"
+
+## revision to add gene id to plot and add indicator for non-pathway genes
+## all genes cross referenced in uniprot
+# p0$geneid <- is.na(p0$geneid)
+p0$geneid <- as.character(p0$geneid)
+p0[411, 10] <- "GraD1" # uniprot
+# p0[2505, 10] <- HVO_RS08195 no gene id
+p0[2452, 10] <- "AglD"
+p0[3309, 10] <- "AglJ"
+p0[886, 10] <- "AglF"
+p0[3379, 10] <- "AglI"
+p0[887, 10] <- "AglG"
+p0[3285, 10] <- "AglB"
+p0[3285, 9] <- "oligosaccharyl transferase"
+p0[888, 10] <- "AglM"
+p0[3418, 10] <- "Csg"
+p0[881, 10] <- "AglP"
+p0[882, 10] <- "AglQ"
+p0[882, 9] <- "agl cluster protein"
+p0[883, 10] <- "AglE"
+p0[884, 10] <- "AglR"
+p0[884, 9] <- "agl cluster protein"
+p0[885, 10] <- "AglS"
+p0[3352, 10] <- "EndH"
+p0[3352, 9] <- "endonuclease I"
+p0[1276, 10] <- "Agl7"
+p0[1278, 10] <- "Agl9"
+p0[1279, 10] <- "Agl10"
+p0[1283, 10] <- "Agl13"
+p0[1284, 10] <- "Agl11"
+p0[3272, 10] <- "Agl14"
+p0[1286, 10] <- "Agl12"
+p0[1287, 10] <- "Agl8"
+p0[1288, 10] <- "Agl6"
+p0[1281, 10] <- "Agl5"
+p0[1282, 10] <- "Agl15"
+# p0[, 10] <- ""
+
+## revisions to protein name for uniformity 
+p0[411, 9] <- "Sugar nucleotidyltransferase" # uniprot
+
 p0$prot <- as.factor(p0$prot)
 
 for(i in 1:length(lists)){
@@ -690,9 +732,11 @@ for(i in 1:length(lists)){
   df_sub <- melt(df_sub, id.vars=c("old", "new", "prot", "geneid", "arcog", "cog", "gene_name"))
   df_sub1 <- merge(df_sub, coords_sub, all.x = TRUE)
   df_sub1 <- merge(df_sub1, coords01_sub, all.x = TRUE)
-  p <- ggplot(data=df_sub1, aes(x= paste(new, 
-                                         # prot, sep = '\n'), # single line prot
-                                         str_wrap(prot, width = 40), sep = '\n'), # multiline x-axis
+  p <- ggplot(data=df_sub1, aes(x= paste(paste(new, old, sep = ' / '), 
+                                         # paste(prot, geneid, sep = ' '), # for glyc
+                                         str_wrap(paste(prot, sep = ' '), width = 35), # for rm, ss, and crispr
+                                         # paste(prot, sep = ' '), # for snare and cetz
+                                          sep = '\n'), # multiline x-axis
                                 y=value, fill = variable)) +
     theme_bw() +
     geom_bar(stat="identity", position = position_dodge(width = NULL), width = 0.7) +
@@ -700,10 +744,13 @@ for(i in 1:length(lists)){
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
     labs(title = paste(nm,"genes"), 
          x = NULL, y = expression("log"["2"]*" fold change"), fill = "time vs shaking") +
-    theme(text = element_text(size=12), axis.text.x = element_text(size  = 12, angle = 45, hjust = 1, vjust = 1)) +
+    theme(text = element_text(size=12), axis.text.x = 
+            element_text(size  = 12, angle = 45, hjust = 1, vjust = 1)) +
     theme(plot.title = element_blank()) +
-    theme(plot.margin = unit(c(0.5,0.5,0.5,2),"cm")) + ## use this for most plot margins
-    # theme(plot.margin = unit(c(0.5,1,0,1.5),"cm")) + ## use this for cowplot for rm
+    # theme(plot.margin = unit(c(0.5,0.5,0.5,2), "cm")) + ## use this for most plot margins
+    theme(plot.margin = unit(c(0.5,1,0,2), "cm")) + ## use this for cowplot for rm
+    # theme(plot.margin = unit(c(0.5,1,0,5), "cm")) + ## use this for cowplot for glyc
+
     scale_fill_manual(labels = c("t00", "t02", "t04", "t08", "t24"), 
                       values = c("#000000", "#E69F00", "#009E73", "#0072B2", "#D55E00")) +
     theme(legend.background = element_rect(fill = "transparent")) +
@@ -715,11 +762,11 @@ for(i in 1:length(lists)){
   print(p)
   nm2 <- gsub(" ", "_", nm)
   assign(paste("plot", nm2, sep = "_"), p)
-  ggsave(filename = paste("plots/bar_",nm2,"_histogram.pdf", sep = ""), 
+ # ggsave(filename = paste("plots/bar_",nm2,"_histogram_revision.pdf", sep = ""),
          # height = 6, width = 8, units = "in" ## for snare
-         height = 6, width = 7, units = "in" ## for tivss
+        # height = 6, width = 7, units = "in" ## for tivss
          # height = 8, width = 10, units = "in" ## for ftsz/cetz system
-         )
+        # )
   # ggsave(filename = paste("exp_mating/gene_plots/",nm2,"_histogram.png", sep = ""))
 }
 
@@ -732,13 +779,13 @@ p0 <- read.delim("data/p0_newgene.txt")
 coords <- read.delim("data/coords.txt")
 coords01 <- read.delim("data/coords01.txt")
 
-coords$valt <- ifelse(coords$val>0, coords$val, coords$val + 0.1)
-coords01$val01t <- ifelse(coords01$val01>0, coords01$val01, coords01$val01 + 0.1)
+coords$val <- ifelse(sig05$logfc>0, with(sig05, logfc + 0.05), with(sig05, logfc - 0.05))
+coords01$val01 <- ifelse(sig01$logfc>0, with(sig01, logfc + 0.05), with(sig01, logfc - 0.05))
+# coords$star <- ifelse(sig05$logfc>0, "*", "*")
+coords$star <- "*"
+coords01$star <- "**"
 
 p0$prot <- as.character(p0$prot)
-p0[840, 9] <- "ATPase FlaH"
-p0[834, 9] <- "archaellar protein FlaCE"
-p0[842, 9] <- "type II secretion system protein PilB3"
 p0[1544, 9] <- "secretion system protein PilC3"
 p0[2055, 9] <- "transducer protein Htr15b"
 p0[2054, 9] <- "transducer protein Htr15a"
@@ -747,22 +794,31 @@ p0[751, 9] <- "peptidase A24 PibD"
 p0[2059, 9] <- "methyl-accepting chemotaxis protein Htr7"
 p0[553, 9] <- "chemotaxis response regulator protein CheB"
 p0[554, 9] <- "chemotaxis response regulator protein CheB"
-p0[839, 9] <- "archaellin FlgA2"
-p0[2418, 9] <- "archaellin FlgA1"
 p0[555, 9] <- "response regulator CheY"
 p0[556, 9] <- "response regulator CheY"
 p0[2058, 9] <- "methyl−accepting chemotaxis protein Htr39"
 p0[2435, 9] <- "ATPase MoxR3"
+p0[842, 9] <- "type II secretion system protein PilB3"
 p0[843, 9] <- "secretion system protein PilB4"
 p0[3075, 9] <- "Flp pilus assembly complex ATPase component TadA"
 p0[2356, 9] <- "archaeosortase A ArtA"
 
-p0[2469, 9] <- "archaellin pilA2"
-p0[2470, 9] <- "archaellin pilA3"
-p0[2471, 9] <- "archaellin pilA4"
-p0[2472, 9] <- "archaellin pilA5"
-p0[2473, 9] <- "archaellin pilA6"
-p0[2814, 9] <- "archaellin type IV pilin"
+p0[834, 9] <- "archaellar protein ArlCE"
+p0[835, 9] <-  "archaellin cluster protein ArlD1"
+p0[836, 9] <-  "archaellin cluster protein ArlD2"
+p0[837, 9] <-  "archaellin cluster protein ArlF"
+p0[838, 9] <-  "archaellin cluster protein ArlG"
+p0[839, 9] <- "archaellin ArlA2"
+p0[840, 9] <- "ATPase ArlH"
+p0[2418, 9] <- "archaellin ArlA1"
+
+
+p0[2469, 9] <- "pilin PilA2"
+p0[2470, 9] <- "pilin PilA3"
+p0[2471, 9] <- "pilin PilA4"
+p0[2472, 9] <- "pilin PilA5"
+p0[2473, 9] <- "pilin PilA6"
+p0[2814, 9] <- "type IV pilin"
 p0$prot <- as.factor(p0$prot)
 
 secretion_system <- c("HVO_2168", "HVO_0421", "HVO_2278", "HVO_0915")
@@ -771,43 +827,46 @@ chemotaxis <- c("HVO_2993", "HVO_0420", "HVO_0555", "HVO_0969",
                "HVO_1225", "HVO_1779", "HVO_1999", "HVO_2214", "HVO_3005")
 flagella <- c("HVO_1033", "HVO_1034", "HVO_1160", "HVO_1200", "HVO_1203", 
               "HVO_1210", "HVO_1211", "HVO_1213", "HVO_1214", "HVO_1215", 
-              "HVO_1216", "HVO_2993", "HVO_2062", "HVO_2450", "HVO_2451", 
-              "HVO_A0632", "HVO_A0633", "HVO_2704", "HVO_1160")
+              "HVO_1216", "HVO_2062", "HVO_2450", "HVO_2451", 
+              "HVO_A0632", "HVO_A0633", "HVO_2704")
+# removed: "HVO_1217", "HVO_1218", 
 # other_flagella <- c("HVO_2062", "HVO_2450", "HVO_2451", "HVO_A0632", "HVO_A0633", "HVO_2704") # added to flagella
 
 df <- stack(mget(c('secretion_system', 'chemotaxis', 'flagella')))
-# df <- stack(mget(c('secretion_system', 'chemotaxis', 'flagella', 'eps', 'other_flagella')))
 df <- plyr::rename(df, c("values"="old", "ind"="category"))
+
 df_sub <- dplyr::distinct(merge(df, p0, all.x = TRUE, by = "old"))
 df_sub$Row.names <- NULL
 df_sub <- reshape::melt(df_sub, id.vars=c("old", "category", "new", "prot", "gene_name", "arcog"))
-coords_sub <- dplyr::distinct(merge(df, coords, all.x = TRUE, by = "old"))
-coords01_sub <- dplyr::distinct(merge(df, coords01, all.x = TRUE, by = "old"))
-df_sub1 <- merge(df_sub, coords_sub, all.x = TRUE)
-df_sub1 <- merge(df_sub1, coords01_sub, all.x = TRUE)
+coords[ ,c('new', 'prot')] <- list(NULL)
+coords01[ ,c('new', 'prot')] <- list(NULL)
+df_sub1 <- left_join(df_sub, coords, by = c("old", "variable"))
+df_sub1 <- left_join(df_sub1, coords01, by = c("old", "variable"))
+df_sub1 <- unite(df_sub1, "star", c(star.x, star.y), na.rm = TRUE, sep = '')
 
-
-ggplot(data=arrange(df_sub1,category), aes(x = old, y=value, fill = variable, group = variable)) +
-# ggplot(data=arrange(df_sub1,category), aes(x = paste(new, prot, sep='\n'), y=value, fill = variable)) +
+ggplot(data=arrange(df_sub1, category), aes(x = old, y=value, fill = variable, group = variable)) +
     theme_bw() +
     geom_bar(stat="identity", position = position_dodge2(width = NULL, reverse=TRUE, padding = 0), width = 0.7) +
-    # geom_signif(stat="identity", aes(y = val, x = new, annotation = "*", xend = new, yend = val)) +
     geom_hline(yintercept = 0) +
+    annotate("text", label = "Secretion Systems", x = 1, y = 2.7, size = 4) +
     geom_vline(xintercept = 4.5, col='grey47', lwd=1) +
+    annotate("text", label = "Chemotaxis", x = 5, y = 2.7, size = 4) +
     geom_vline(xintercept = 17.5, col='grey47', lwd=1) +
+    annotate("text", label = "Archaella and Pili", x = 18, y = 2.7, size = 4) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
     theme(axis.text.x = element_text(size = 8, hjust = 1, vjust = 1)) +
     theme(plot.title = element_text(hjust = 0.5), plot.margin = unit(c(0.5,0,0.5,1),"cm")) +
     scale_fill_manual(labels = c("t00", "t02", "t04", "t08", "t24"), 
                       values=c("#000000", "#E69F00", "#009E73", "#0072B2", "#D55E00")) +
-    # geom_text(aes(y = valt), label = "*", position = position_dodge(width = 0.7)) +
-    # geom_text(aes(y = val01t), label = "**", position = position_dodge(width = 0.7)) +
-    aes(x = fct_inorder(paste(new, prot, sep='\n'), category)) +
+    geom_text(aes(label = star), stat = "identity",
+              position = position_dodge2(width = 0.6, reverse = TRUE)) +
+    aes(x = fct_inorder(paste(paste(new, old, sep = ' / '), prot, sep='\n'), category)) +
     labs(x = NULL, y = expression("log"["2"]*" fold change"), fill = "time vs shaking") +
-    theme(legend.position = c(0.94, 0.87)) +
+    theme(legend.position = c(0.87, 0.9)) +
     coord_flip()
 # longplot
-ggsave("plots/fig3_community.pdf", height = 12, width = 10)
+ggsave("plots/fig3_community_revision.pdf", height = 11, width = 8)
+ggsave("plots/fig3_community_revision.eps", height = 11, width = 8)
 ## added significance stars by hand due to misalignment with above script
 ```
 
@@ -852,6 +911,14 @@ df_sub1 <- merge(df_sub, coords_sub, all.x = TRUE)
 df_sub1 <- merge(df_sub1, coords01_sub, all.x = TRUE)
 df_sub1 <- df_sub1[!is.na(df_sub1$value), ]
 
+is_table <- dplyr::distinct(merge(df, p0, all.x = TRUE, by = "old"))
+  is_table <- dplyr::distinct(merge(is_table, sig, all.x = TRUE, by = "Row.names"))
+  is_table[,c(1,11:12)] <- NULL
+  is_table <- is_table[,c(8,1:2,9,3:7,10:14)]
+  is_table %>% rename_at(vars(ends_with(".x")), funs(str_replace(., ".x", ""))) -> is_table
+  is_table %>% rename_at(vars(ends_with(".y")), funs(str_replace(., ".y", "_probability"))) -> is_table
+write.table(is_table, "tables/table_s5_insertion_seqs.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+
 ggplot(data=arrange(df_sub1, category), aes(x = old, y=value, fill = variable, group = variable)) +
 # ggplot(data=arrange(df_sub1,category), aes(x = paste(new, prot, sep='\n'), y=value, fill = variable)) +
     theme_bw() +
@@ -877,7 +944,7 @@ ggplot(data=arrange(df_sub1, category), aes(x = old, y=value, fill = variable, g
   geom_text(aes(44.5, 5, label = "IS5 Family", vjust = 1.2, hjust = 1), color = "grey47", size = 3) +
     geom_text(aes(81.5, 5, label = "IS4 Family", vjust = 1.1, hjust = 1), color = "grey47", size = 3) +
     ylim(-5, 5) +
-    theme(legend.position = c(0.1,0.94)) +
+    theme(legend.position = c(0.12,0.94)) +
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
     theme(axis.text.x = element_text(size = 8, hjust = 1, vjust = 1)) +
     theme(plot.title = element_text(hjust = 0.5), plot.margin = unit(c(0.5,0,0.5,1),"cm")) +
@@ -885,12 +952,13 @@ ggplot(data=arrange(df_sub1, category), aes(x = old, y=value, fill = variable, g
                       values=c("#000000", "#E69F00", "#009E73", "#0072B2", "#D55E00")) +
     # geom_text(aes(y = valt), label = "*", position = position_dodge(width = 0.7)) +
     # geom_text(aes(y = val01t), label = "**", position = position_dodge(width = 0.7)) +
-    aes(x = fct_inorder(paste(new), category)) +
+    aes(x = fct_inorder(paste(new, old, sep = ' / '), category)) +
     labs(x = NULL, y = expression("log"["2"]*" fold change"), fill = "time vs shaking") +
     coord_flip()
   # facet_wrap(~category, nrow = 1, scales = "free_x")
 # longplot
-ggsave("plots/figS3_transposases.pdf", height = 15, width = 8)
+ggsave("plots/figS3_transposases_revision.pdf", height = 15, width = 8)
+ggsave("plots/figS3_transposases_revision.eps", height = 15, width = 8)
 ```
 
 ```{r violin plot}
@@ -963,6 +1031,7 @@ p0sub <- subset(p0mer, old %in% transposase)
 viol <- ggplot(data = p0sub, aes(x = variable, y = value)) +
   geom_violin() +
   geom_jitter(height = 0, width = 0.2, aes(color = V1), alpha = 0.5) +
+  theme_bw() +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   scale_color_manual(values = wes_palette(n = 9, name = "Darjeeling1", type = "continuous"), name = "") +
   labs(x = NULL, y = expression("log"["10"]*" TMM values")) +
@@ -1367,46 +1436,68 @@ manplotc
 manplot
 plot_rms
 viol
-plot_grid(manplot, viol, plot_rms, labels = c('A', 'B', 'C'), label_size = 14, ncol = 1, nrow = 3)
+plot_grid(manplot, viol, plot_rms, labels = c('A', 'B', 'C'), label_size = 14, 
+          ncol = 1, nrow = 3, rel_heights = c(0.9, 0.9, 1.2))
 # ggsave("plots/figure6_selfish_genes.pdf", height = 15, width = 8, units = "in")
-
+ggsave("plots/figure6_selfish_genes_revision.pdf", height = 15, width = 8, units = "in")
 
 manplotc
 plot_crispr_cas
-plot_grid(manplotc, plot_crispr_cas, labels = c('A', 'B'), label_size = 14, ncol = 1, nrow = 2)
+plot_grid(manplotc, plot_crispr_cas, labels = c('A', 'B'), label_size = 14, 
+          ncol = 1, nrow = 2, rel_heights = c(0.9, 1.1))
 # ggsave("plots/figureS4_crispr.pdf", height = 12, width = 10, units = "in")
+ggsave("plots/figureS4_crispr_revision.pdf", height = 12, width = 10, units = "in")
+
+## ggsave won't include alpha so plots are blank and ggplot device = cairo_ps/cairo_eps not working
+cairo_ps(file = "plots/figure6_selfish_genes_revision.eps", onefile = TRUE, 
+         fallback_resolution = 300, height = 15, width = 8)
+plot_grid(manplot, viol, plot_rms, labels = c('A', 'B', 'C'), label_size = 14, 
+          ncol = 1, nrow = 3, rel_heights = c(0.9, 0.9, 1.2))
+dev.off()
+
+cairo_ps(file = "plots/figureS4_crispr_revision.eps", onefile = TRUE, 
+         fallback_resolution = 300, height = 12, width = 10)
+plot_grid(manplotc, plot_crispr_cas, labels = c('A', 'B'), label_size = 14, 
+          ncol = 1, nrow = 2, rel_heights = c(0.9, 1.1))
+dev.off()
+
 
 plot_glyc
 plot_lsglyc
 plot_grid(plot_glyc, plot_lsglyc, labels = c('A', 'B'), label_size = 18, ncol = 1, nrow = 2)
-# ggsave("plots/figure2_glycosylation.pdf", height = 18, width = 14, units = "in")
+ggsave("plots/figure_2_glycosylation_revision.pdf", height = 18, width = 14, units = "in")
+ggsave("plots/figure_2_glycosylation_revision.eps", height = 18, width = 14, units = "in")
 ```
 
 ```{r top and bottom de}
+load("data/p0.RData")
+load("data/coords.RData")
+load("data/coords01.RData")
+
 #head(logfc)
 #for(i in c("de00","de02","de04","de08","de24")) {
-top_n(p0, 20, de00) %>% arrange(-de00) %>%
-  write.table(file = "tables/de00_top20.txt", quote = FALSE, sep = "\t", row.names = FALSE) 
-top_n(p0, 20, de02) %>% arrange(-de02) %>%
-  write.table(file = "tables/de02_top20.txt", quote = FALSE, sep = "\t", row.names = FALSE)
-top_n(p0, 20, de04) %>% arrange(-de04) %>%
-  write.table(file = "tables/de04_top20.txt", quote = FALSE, sep = "\t", row.names = FALSE)
-top_n(p0, 20, de08) %>% arrange(-de08) %>%
-  write.table(file = "tables/de08_top20.txt", quote = FALSE, sep = "\t", row.names = FALSE)
-top_n(p0, 20, de24) %>% arrange(-de24) %>%
-  write.table(file = "tables/de24_top20.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+top_n(p0, 10, de00) %>% arrange(-de00) %>%
+  write.table(file = "tables/de00_top10.txt", quote = FALSE, sep = "\t", row.names = FALSE) 
+top_n(p0, 10, de02) %>% arrange(-de02) %>%
+  write.table(file = "tables/de02_top10.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+top_n(p0, 10, de04) %>% arrange(-de04) %>%
+  write.table(file = "tables/de04_top10.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+top_n(p0, 10, de08) %>% arrange(-de08) %>%
+  write.table(file = "tables/de08_top10.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+top_n(p0, 10, de24) %>% arrange(-de24) %>%
+  write.table(file = "tables/de24_top10.txt", quote = FALSE, sep = "\t", row.names = FALSE)
 #max(logfc$de00, na.rm = TRUE)
 
-top_n(p0, -20, de00) %>% arrange(-de00) %>%
-  write.table(file = "tables/de00_bottom20.txt", quote = FALSE, sep = "\t", row.names = FALSE) 
-top_n(p0, -20, de02) %>% arrange(-de02) %>%
-  write.table(file = "tables/de02_bottom20.txt", quote = FALSE, sep = "\t", row.names = FALSE)
-top_n(p0, -20, de04) %>% arrange(-de04) %>%
-  write.table(file = "tables/de04_bottom20.txt", quote = FALSE, sep = "\t", row.names = FALSE)
-top_n(p0, -20, de08) %>% arrange(-de08) %>%
-  write.table(file = "tables/de08_bottom20.txt", quote = FALSE, sep = "\t", row.names = FALSE)
-top_n(p0, -20, de24) %>% arrange(-de24) %>%
-  write.table(file = "tables/de24_bottom20.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+top_n(p0, -10, de00) %>% arrange(-de00) %>%
+  write.table(file = "tables/de00_bottom10.txt", quote = FALSE, sep = "\t", row.names = FALSE) 
+top_n(p0, -10, de02) %>% arrange(-de02) %>%
+  write.table(file = "tables/de02_bottom10.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+top_n(p0, -10, de04) %>% arrange(-de04) %>%
+  write.table(file = "tables/de04_bottom10.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+top_n(p0, -10, de08) %>% arrange(-de08) %>%
+  write.table(file = "tables/de08_bottom10.txt", quote = FALSE, sep = "\t", row.names = FALSE)
+top_n(p0, -10, de24) %>% arrange(-de24) %>%
+  write.table(file = "tables/de24_bottom10.txt", quote = FALSE, sep = "\t", row.names = FALSE)
 
 #top 20
 # lists <- list(
@@ -1448,10 +1539,11 @@ for(i in 1:length(lists)){
   coords_sub <- filter(coords, grepl(paste((lists[[i]]), collapse="|"), old))
   coords01_sub <- filter(coords01, grepl(paste((lists[[i]]), collapse="|"), old))
   df_sub$Row.names <- NULL
-  df_sub <- melt(df_sub, id.vars=c("old", "new", "prot", "gene_name", "arcog", "geneid", "cog"))
+  df_sub <- melt(df_sub, id.vars=c("old", "new", "prot", "gene_name", "geneid", "cog", "arcog"))
   df_sub1 <- merge(df_sub, coords_sub, all.x = TRUE)
   df_sub1 <- merge(df_sub1, coords01_sub, all.x = TRUE)
-  p <- ggplot(data=df_sub1, aes(x= paste(new, str_wrap(prot, width = 30), sep='\n'), y=value, fill = variable)) +
+  p <- ggplot(data=df_sub1, aes(x= paste(paste(new, old, sep = " / "), str_wrap(prot, width = 30), sep='\n'), 
+                                y=value, fill = variable)) +
     theme_bw() +
     geom_bar(stat="identity", position = position_dodge(width = NULL), width = 0.7) +
     geom_hline(yintercept = 0) +
@@ -1459,11 +1551,11 @@ for(i in 1:length(lists)){
     labs(title = paste(nm,"genes"), 
          x = NULL, y = expression("log"["2"]*" fold change"), fill = "time vs shaking") +
     theme(axis.text.x = element_text(size  = 16, angle = 45, hjust = 1, vjust = 1)) +
-    theme(plot.title = element_text(hjust = 0.5), plot.margin = unit(c(0.5,0.5,0.5,1),"cm")) +
+    theme(plot.title = element_text(hjust = 0.5), plot.margin = unit(c(0.5,0.5,0.5,3),"cm")) +
     scale_fill_manual(labels = c("t00", "t02", "t04", "t08", "t24"), 
                       values=c("#000000", "#E69F00", "#009E73", "#0072B2", "#D55E00")) +
-    geom_text(aes(y = val), label = "*", position = position_dodge(width = 0.7), size = 2) +
-    geom_text(aes(y = val01), label = "**", position = position_dodge(width = 0.7), size = 2) +
+    geom_text(aes(y = val), label = "*", position = position_dodge(width = 0.7), size = 3) +
+    geom_text(aes(y = val01), label = "**", position = position_dodge(width = 0.7), size = 3) +
     theme(title = element_text(size = 16), axis.text = element_text(size = 16)) +
     # theme(legend.title = element_text(size = 16), legend.text = element_text(size = 16)) +
     # theme(legend.position = "bottom")
@@ -1487,7 +1579,9 @@ combined_plot <- plot_grid(p_t00_top_10, p_t00_bottom_10,
                            p_t24_top_10, p_t24_bottom_10, 
           labels = c('A', 'F', 'B', 'G', 'C', 'H', 'D', 'I', 'E', 'J'), label_size = 20, ncol = 2, nrow = 5)
 plot_grid(combined_plot, leg, ncol = 1, rel_heights = c(1, .02))
-ggsave("plots/figureS6_top_bottom_10.pdf", height = 36, width = 24, units = "in")
+# ggsave("plots/figureS6_top_bottom_10.pdf", height = 36, width = 24, units = "in")
+ggsave("plots/figureS7_top_bottom_10_revised.pdf", height = 36, width = 24, units = "in")
+ggsave("plots/figureS7_top_bottom_10_revised.eps", height = 36, width = 24, units = "in")
 ```
 
 
@@ -1557,8 +1651,12 @@ cluster_all <- degPatterns(cluster_rlog_all, metadata = myfactors, time = "time_
 #### ggplot manually
 ggplot(cluster_all$plot$data) +
   geom_line(aes(x = time_de, y = value, group = genes), color = "grey") +
-  geom_boxplot(aes(x = time_de, y = value, alpha = 0.2)) +
-  geom_point(position = "jitter", aes(x = time_de, y = value, alpha = 0.2)) +
+  geom_boxplot(aes(x = time_de, y = value
+                   # alpha = 0.2 # transparency isn't working for eps
+                   )) +
+  geom_point(position = "jitter", aes(x = time_de, y = value 
+                                      # alpha = 0.2 # transparency isn't working for eps
+                                      )) +
   theme_bw() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
   theme(legend.position = "none") +
@@ -1566,8 +1664,8 @@ ggplot(cluster_all$plot$data) +
   theme(text = element_text(size=24), axis.text.x = element_text(size  = 24, angle = 90, hjust = 1, vjust = 1)) +
   theme(plot.title = element_text(size = 24)) +
   facet_wrap(~cluster, ncol = 4)
-ggsave("plots/figS7_clusters.pdf", height = 20, width = 14)
-# ggsave("exp_mating/plots/supp_fig_clusters.tiff")
+ggsave("plots/figS5_clusters_revision.pdf", height = 20, width = 14)
+ggsave("plots/figS5_clusters_revision.eps", height = 20, width = 14)
 # What type of data structure is the `clusters` output?
 class(clusters)
 
@@ -1648,7 +1746,7 @@ for(s1 in time_de){
 ```
 
 
-```{r group3 figures}
+```{r group3 volcano}
 for(s1 in time_de){
   for(s2 in time_de){
     if(s1!=s2){
@@ -1677,7 +1775,21 @@ for(s1 in time_de){
                   genomewideline = -log10(1e-2), genomewideline_color = "green", title = paste(s1,"vs",s2), 
                   highlight = tmm_r$locus_tag, highlight_color = "black")
         print(volc_plot)
+        assign(paste("plot", s1, "vs", s2, sep = "_"), volc_plot)
+        # ggsave(paste0("plots/volcano_",s1,"vs",s2,"_cluster3.pdf"))
+        # ggsave(paste0("plots/volcano_",s1,"vs",s2,"_cluster3.eps"))
       }}}}
+
+plot_shaking_vs_t00
+plot_shaking_vs_t02
+plot_shaking_vs_t04
+plot_shaking_vs_t08
+plot_shaking_vs_t24
+cls3 <- subplot(plot_shaking_vs_t00, plot_shaking_vs_t02, plot_shaking_vs_t04,
+          plot_shaking_vs_t08, plot_shaking_vs_t24, nrows = 3, shareX = TRUE, shareY = TRUE)
+# ggsave("plots/figure6_selfish_genes.pdf", height = 15, width = 8, units = "in")
+# orca(cls3, "plots/figureS6_cluster3_volcano_revision.pdf", height = 9, width = 6.5)
+# need orca command line installed, but currently installed in the wrong place; fix later
 ```
 
 
@@ -1763,6 +1875,7 @@ for (x in 1:22) {
 
 ```{r gene map}
 genes <- read.delim("data/genes_for_map.txt", header = TRUE)
+genes_gly <- read.delim("data/genes_for_map_glyc.txt", header = TRUE)
 
 ggplot(genes, aes(xmin = start, xmax = stop, y = chr, fill = locus_tag, label = gene)) +
   geom_gene_arrow() +
@@ -1777,12 +1890,26 @@ ggplot(
   aes(xmin = start, xmax = stop, y = strand, fill = locus_tag, label = gene, forward = direction)
   ) +
   geom_gene_arrow() +
-  geom_gene_label(align = "center") +
+  geom_gene_label() +
   scale_fill_brewer(palette = "Set3") +
   theme_genes() +
   theme(legend.title = element_blank()) +
   theme(legend.key.size = unit(0.3, "cm"))
 ggsave("plots/gene_map.pdf", height = 2, width = 6, units = "in")
+ggsave("plots/gene_map.eps", height = 2, width = 6, units = "in")
+
+genes_gly$direction <- ifelse(genes_gly$strand == "+", 1, -1)
+ggplot(
+  subset(genes_gly, chr == "Chromosome"),
+  aes(xmin = start, xmax = stop, y = strand, fill = locus_tag, label = gene, forward = direction)
+  ) +
+  geom_gene_arrow() +
+  geom_gene_label() +
+  scale_fill_brewer(palette = "Set3") +
+  theme_genes() +
+  theme(legend.title = element_blank()) +
+  theme(legend.key.size = unit(0.3, "cm"))
+ggsave("plots/gene_map_glyc.pdf", height = 2, width = 6, units = "in")
 ```
 
 ```{r wet plots, dev='pdf', fig.width=6, fig.height=3}
@@ -1971,5 +2098,79 @@ ggplot(mating_noz, aes(time, mated, group=1)) +
   ylab("Mating efficiency")
 ggsave("plots/mating_efficiency_nozs.pdf")
 ```
+---
+#### Revisions 
+Some revisions were made within the above script for minor edits to figures. The following is additional analyses recommended by the reviewers.
+```{bash hhpred}
+# in silico functional analysis of hypotheticals
+# split the protein file for Hvo DS2 to pull out hypothetical proteins
+# include qc
+mkdir split
+mkdir hypothetical
+mkdir out
+split_multifasta.pl -i ../GCF_000025685.1_ASM2568v1_protein.faa -o split/
+grep -c "^>" ../GCF_000025685.1_ASM2568v1_protein.faa
+ls split/*.fsa | wc -l
+grep -lir "hypothetical" split/* | xargs mv -t hypothetical/
+ls split/*.fsa | wc -l
+ls hypothetical/*.fsa | wc -l
+
+# 1327 genes have "hypothetical" in the name
+
+# https://github.com/soedinglab/hh-suite/wiki
+
+# installed hhsuite https://github.com/soedinglab/hh-suite using mac os method - no issues
+# for reference:
+brew install gcc
+brew install g++
+cd ~/scripts
+git clone https://github.com/soedinglab/hh-suite.git
+mkdir -p hh-suite/build && cd hh-suite/build
+## check version of gcc installed - gcc-10 on 2020.08.25
+CC="$(brew --prefix)/bin/gcc-10" CXX="$(brew --prefix)/bin/g++-10" cmake -DCMAKE_INSTALL_PREFIX=. ..
+make -j 4 && make install
+export PATH="$(pwd)/bin:$(pwd)/scripts:$PATH"
+
+## checking every hypothetical
+for i in hypothetical/*.fsa; do 
+  file=`basename "${i}"`; echo ${file};
+  hhblits -i hypothetical/${file} \
+    -o out/${file}.out \
+    -oa3m out/${file}.msa \
+    -opsi out/${file}.psiblast \
+    -d ~/databases/uniclust30_2016_03/uniclust30_2016_03;
+done
+
+## focusing on the top up and down
+mkdir topbottom
+mkdir topbottom_out
+
+for i in /Volumes/LaCie/hvo_mating/tables/de*10.txt; do
+  file=`basename "${i}"`; echo ${file};
+  awk '{print $1}' /Volumes/LaCie/hvo_mating/tables/${file} |\
+  sed 's/.*WP/WP/g; s/1_.*/1/g; 1d' |\
+  grep -v "NC_" > ${file}; 
+done
+
+for i in *.txt; do
+  grep -Fli -f ${i} hypothetical/* | xargs mv -t topbottom/;
+done
+
+for i in topbottom/*.fsa; do 
+  file=`basename "${i}"`; echo ${file};
+  hhblits -i topbottom/${file} \
+    -o topbottom_out/${file}.out \
+    -oa3m topbottom_out/${file}.msa \
+    -opsi topbottom_out/${file}.psiblast \
+    -d ~/databases/uniclust30_2016_03/uniclust30_2016_03;
+done
+```
+
+```{r}
+
+```
+
+
+
 
 ## end ##
